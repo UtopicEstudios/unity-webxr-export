@@ -4,6 +4,7 @@ namespace WebXR.Editor
 {
 	public static class Builder
 	{
+		private const string TemplateFolderName = "WebXR";
 		[MenuItem("Build/All")]
 		public static void BuildAll()
 		{
@@ -14,7 +15,7 @@ namespace WebXR.Editor
 		[MenuItem("Build/Package")]
 		public static void BuildPackage()
 		{
-			AssetDatabase.ExportPackage(new[] { "Assets/WebXR", "Assets/WebGLTemplates/WebXR" }, "WebXR-Assets.unitypackage", ExportPackageOptions.Recurse);
+			AssetDatabase.ExportPackage(new[] { "Assets/WebXR", "Assets/WebGLTemplates/" + TemplateFolderName }, "WebXR-Assets.unitypackage", ExportPackageOptions.Recurse);
 		}
 
 		[MenuItem("Build/Desert Sample")]
@@ -22,9 +23,9 @@ namespace WebXR.Editor
 		{
 #if !UNITY_2018_4_OR_NEWER
 			// There is no explicit api for setting the template as of 2018.4
-			PlayerSettings.SetPropertyString("template", "PROJECT:WebXR", BuildTargetGroup.WebGL);
+			PlayerSettings.SetPropertyString("template", "PROJECT:" + TemplateFolderName, BuildTargetGroup.WebGL);
 #else
-			PlayerSettings.WebGL.template = "WebXR";
+			PlayerSettings.WebGL.template = TemplateFolderName;
 #endif
 			BuildPipeline.BuildPlayer(new BuildPlayerOptions
 			{
