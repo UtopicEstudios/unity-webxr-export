@@ -4,7 +4,7 @@ namespace WebXR.Editor
 {
 	public static class Builder
 	{
-		private const string TemplateFolderName = "WebXR";
+		private const string TemplateFolderName = "WebXR~";
 		[MenuItem("Build/All")]
 		public static void BuildAll()
 		{
