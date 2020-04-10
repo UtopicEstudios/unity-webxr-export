@@ -5,6 +5,7 @@ Logs
 /[Tt]emp/
 /[Oo]bj/
 /Assets/AssetStoreTools*
+/Build/
 /Build_*/
 /Builds/
 
